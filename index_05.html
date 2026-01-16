@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粤港澳大湾区 - 九市风采</title>
+    <link rel="stylesheet" href="style_01.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航：修正导航链接，为九市添加锚点链接 -->
+    <header class="header">
+        <div class="header-container">
+            <h1 class="logo">粤港澳大湾区 <span>九市巡礼</span></h1>
+            <nav class="nav">
+                <a href="index.html">湾区总览</a>
+                <a href="index_02.html">香港</a>
+                <a href="index_03.html">澳门</a>
+                <a href="index_04.html#1">广州</a>
+                <a href="index_04.html#2">深圳</a>
+                <a href="index_04.html#3">珠海</a>
+                <a href="index_04.html#4">佛山</a>
+                <a href="index_04.html#5">惠州</a>
+                <a href="index_04.html#6">东莞</a>
+                <a href="index_04.html#7">中山</a>
+                <a href="index_04.html#8">江门</a>
+                <a href="index_04.html#9">肇庆</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-text">
+            <h2>粤港澳大湾区参考链接纯文本清单</h2>
+            </div>
+    </section>
+
+    <main class="city-container">
+        <div class="city-card">
+            <i class="fa-solid fa-handshake-angle"></i>
+            <h3>一、核心政策规划类</h3>
+            <p><a href="https://www.gov.cn/zhengce/zhengceku/2019-02/18/content_5366593.htm" target="_blank">中国政府网<br>《粤港澳大湾区发展规划纲要》</a>
+            </p><p><a href="https://www.gov.cn/zhengce/gongbao/content/2019/content_5368864.htm" target="_blank">国务院公报<br>《粤港澳大湾区发展规划纲要》（2019 年第 7 号）</a>
+            </p><p><a href="https://www.gov.cn/zhengce/zhengceku/2021-09/05/content_5635671.htm" target="_blank">横琴粤澳深度合作区总体方案<br>（中国政府网）</a>
+            </p><p><a href="https://www.gov.cn/zhengce/zhengceku/2021-09/06/content_5635827.htm" target="_blank">全面深化前海深港现代服务业合<br>作区改革开放方案(中国政府网)</a>
+            </p>
+       </div>
+        <div class="city-card">
+            <i class="fa-solid fa-id-card"></i>
+            <h3>二、官方综合门户类</h3>
+              <p><a href="https://www.gba.gov.cn/" target="_blank">粤港澳大湾区门户网</a>
+            </p><p><a href="https://www.gov.hk/sc/residents/employment/gbayarea/" target="_blank">香港政府粤港澳大湾区专题网页</a>
+            </p><p><a href="https://www.gov.mo/zh-hans/policies/development/greater_bay_area/" target="_blank">澳门特别行政区政府大湾区专题</a>
+            </p>
+        </div>
+        <div class="city-card">
+            <i class="fa-solid fa-network-wired"></i>
+            <h3>三、核心合作区<br>　与  创新平台类</h3>
+            <p><a href="https://www.gzns.gov.cn/" target="_blank">南沙粤港澳全面合作示范区<br>官方网站</a>
+            </p><p><a href="https://www.hkstp.org/zh-hans/whats-new/hkstp-news/hk-shenzhen-innovation-and-technology-park" target="_blank">港深创新及科技园官网</a>
+            </p><p><a href="https://qh.sz.gov.cn/" target="_blank">深圳前海合作区官方网站</a>
+            </p>
+        </div>
+        <div class="city-card">
+            <i class="fa-solid fa-chart-bar"></i>
+            <h3>四、数据统计与研究类</h3>
+            <p><a href="https://stats.gd.gov.cn/" target="_blank">广东省统计局大湾区统计数据</a>
+            </p><p><a href="https://www.censtatd.gov.hk/" target="_blank">香港特别行政区政府统计处</a>
+            </p><p><a href="https://www.dsec.gov.mo/" target="_blank">澳门特别行政区政府统计暨<br>普查局</a>
+            </p><p><a href="https://www.gbai.cn/" target="_blank">粤港澳大湾区研究院<br>（智库研究报告）</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 粤港澳大湾区九市介绍 | 6E17 | 图文仅供参考</p>
+    </footer>
+
+    <button class="back-to-top" id="backTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script>
+        // 回到顶部功能
+        const backTopBtn = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            backTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        backTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 导航栏平滑滚动-区分外部链接和锚点链接
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // 新增：页面滚动 城市卡片渐入显示效果
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.city-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (cardTop < windowHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        // 页面加载时执行一次，初始化首屏卡片
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* 全局样式重置 - 消除浏览器默认边距和样式差异 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 所有元素都加平滑过渡，动画更丝滑 */
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 全局基础样式 */
+body {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    color: #333;
+    background-color: #f0f5fc;
+    line-height: 1.7;
+    overflow-x: hidden;
+    background-image: radial-gradient(#0066cc10 1px, transparent 0);
+    background-size: 20px 20px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul,li {
+    list-style: none;
+}
+
+/* ========== 顶部导航栏样式 - 毛玻璃+磨砂+高级质感 ========== */
+.header {
+    width: 100%;
+    background-color: rgba(0, 51, 102, 0.92);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.header-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0.9rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.logo span {
+    color: #ffdf33;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.nav {
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+}
+.nav a {
+    color: #fff;
+    padding: 0.6rem 0.3rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+}
+/* 导航悬浮特效：渐变底色+边框高亮+文字发光 */
+.nav a:hover {
+    background-color: rgba(0, 102, 204, 0.8);
+    border-color: #b3d0ff;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(179, 208, 255, 0.5);
+}
+
+/* ========== 页面横幅样式 - 背景图+渐变蒙版+氛围感拉满 ==========https://picsum.photos/id/164/1920/300 */
+.banner {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.9)), url(back_1-1920x300.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 3rem;
+}
+.banner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top, #f0f5fc, transparent);
+}
+.banner-text {
+    text-align: center;
+    color: #fff;
+    max-width: 900px;
+    padding: 0 2rem;
+    z-index: 2;
+}
+.banner-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+}
+.banner-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+/* ========== 城市卡片容器 - 排版优化 ========== */
+.city-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem;
+}
+
+/* ========== 城市卡片核心样式 - 极致美化+悬浮动画 重中之重 ========== */
+.city-card {
+    background: linear-gradient(145deg, #ffffff, #f8fbff);
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 51, 102, 0.08), 0 3px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e8f0ff;
+    /* 初始状态：透明+下沉，配合滚动渐入 */
+    opacity: 0;
+    transform: translateY(30px);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+/* 卡片前置蒙版，hover时显示渐变光效 */
+.city-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(179, 208, 255, 0.2), transparent);
+    transition: all 0.7s ease;
+}
+/* 核心悬浮动画：上浮+轻微放大+阴影加深+边框变色 */
+.city-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 51, 102, 0.15), 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #b3d0ff;
+}
+.city-card:hover::before {
+    left: 100%;
+}
+/* 图标样式 - 彩色渐变+放大+旋转动画 */
+.city-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #003366, #0066cc);
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+.city-card:hover i {
+    transform: rotate(10deg) scale(1.15);
+}
+/* 卡片标题样式 */
+.city-card h3 {
+    font-size: 1.4rem;
+    color: #003366;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+/* 卡片描述文字 */
+.city-card p {
+    color: #556688;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ========== 回到顶部按钮 - 美化+悬浮特效 ========== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: none;
+    z-index: 998;
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+}
+.back-to-top:hover {
+    background-color: #0066cc;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+}
+
+/* ========== 页脚样式 - 渐变+美化 ========== */
+.footer {
+    width: 100%;
+    background: linear-gradient(to top, #003366, #004488);
+    color: #d0e0ff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+.footer p {
+    opacity: 0.9;
+}
+
+/* ========== 响应式适配 - 手机端完美显示 ========== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+    }
+    .logo {
+        font-size: 1.4rem;
+    }
+    .nav {
+        justify-content: center;
+        gap: 0.6rem;
+    }
+    .nav a {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.9rem;
+    }
+    .banner {
+        height: 250px;
+    }
+    .banner-text h2 {
+        font-size: 1.6rem;
+    }
+    .banner-text p {
+        font-size: 1rem;
+    }
+    .city-container {
+        padding: 0 1rem 3rem;
+        gap: 1.5rem;
+    }
+    .city-card {
+        padding: 1.8rem 1rem;
+    }
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

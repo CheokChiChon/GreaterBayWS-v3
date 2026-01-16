@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粤港澳大湾区 - 九市风采</title>
+    <link rel="stylesheet" href="style_01.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 新增：漂浮JPG按钮样式 */
+        .floating-btn {
+            /* 固定定位，悬浮在页面上 */
+            position: fixed;
+            /* 按钮位置：右下角，可调整数值 */
+            top: 280px;
+            right: 15px;
+            /* 按钮大小，可根据图片调整 */
+            width: 207px;
+            height: 60px;
+            /* 鼠标悬浮显示手型 */
+            cursor: pointer;
+            /* 层级置顶，避免被其他元素遮挡 */
+            z-index: 9999;
+            /* 可选：添加轻微阴影提升视觉效果 */
+            box-shadow: 0 20x 0px rgba(0,0,0,0.2);
+            /* 可选：圆角，根据需求调整 */
+            border-radius: 0%;
+            /* 禁止图片拖拽 */
+            user-select: none;
+        }
+        /* 可选：鼠标悬浮时的缩放动画 */
+        .floating-btn:hover {
+            transform: scale(1.15);
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- 新增：漂浮JPG按钮 -->
+    <img src="point1gif.gif" alt="漂浮按钮" class="floating-btn" id="floatingBtn">
+
+    <header class="header">
+        <div class="header-container">
+            <h1 class="logo">粤港澳大湾区 <span>九市巡礼</span></h1><p>   </p>
+            <nav class="nav">
+               <a>湾区总览</a>
+                <a href="index_02.html">香港</a>
+                <a href="index_03.html">澳门</a>
+
+                <a href="index_04.html#1">广州</a>
+                <a href="index_04.html#2">深圳</a>
+                <a href="index_04.html#3">珠海</a>
+                <a href="index_04.html#4">佛山</a>
+                <a href="index_04.html#5">惠州</a>
+                <a href="index_04.html#6">东莞</a>
+                <a href="index_04.html#7">中山</a>
+                <a href="index_04.html#8">江门</a>
+                <a href="index_04.html#9">肇庆</a>
+            </nav>
+        </div>    </header>
+
+    <section class="banner">
+        <div class="banner-text">
+            <h2>湾区总览 · 九市二区 协同共进</h2>
+            <p>粤港澳大湾区由香港、澳门两个特别行政区和广东省广州、深圳、珠海、佛山、惠州、东莞、中山、江门、肇庆九个珠三角城市组成，是中国开放程度最高、经济活力最强的区域之一。</p>
+        </div>
+    </section>
+
+    <main class="city-container">
+        <div class="city-card">
+            <a href="index_02.html"><i class="fa-solid fa-city"></i>
+            <h3>香港</h3>
+            <p>国际金融、航运、贸易中心</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_03.html"><i class="fa-solid fa-gem"></i>
+            <h3>澳门</h3>
+            <p>世界旅游休闲中心<br>中葡商贸合作平台</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#1"><i class="fa-solid fa-building-columns"></i>
+            <h3>广州</h3>
+            <p>国家中心城市<br>综合性门户城市</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#2"><i class="fa-solid fa-microchip"></i>
+            <h3>深圳</h3>
+            <p>中国特色社会主义先行示范区<br>科技创新中心</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#3"><i class="fa-solid fa-leaf"></i>
+            <h3>珠海</h3>
+            <p>生态宜居滨海城市<br>区域协同发展支撑</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#4"><i class="fa-solid fa-industry"></i>
+            <h3>佛山</h3>
+            <p>全国先进制造业基地</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#5"><i class="fa-solid fa-laptop-code"></i>
+            <h3>东莞</h3>
+            <p>世界级先进制造业基地</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#6"><i class="fa-solid fa-water"></i>
+            <h3>惠州</h3>
+            <p>湾区生态屏障<br>产业协同辐射枢纽</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#7"><i class="fa-solid fa-gears"></i>
+            <h3>中山</h3>
+            <p>装备制造特色城市<br>历史文化名城</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#8"><i class="fa-solid fa-house-chimney"></i>
+            <h3>江门</h3>
+            <p>大湾区西翼门户<br>中国著名侨乡</p></a>
+        </div>
+        <div class="city-card">
+            <a href="index_04.html#9"><i class="fa-solid fa-mountain-sun"></i>
+            <h3>肇庆</h3>
+            <p>连接大西南节点城市<br>生态旅游名城</p></a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 粤港澳大湾区九市介绍 | 6E17 | 图文仅供参考</p>
+    </footer>
+
+    <button class="back-to-top" id="backTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script>
+        // 回到顶部功能
+        const backTopBtn = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            backTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        backTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 导航栏平滑滚动-区分外部链接和锚点链接
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // 新增：页面滚动 城市卡片渐入显示效果
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.city-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (cardTop < windowHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        // 页面加载时执行一次，初始化首屏卡片
+        window.dispatchEvent(new Event('scroll'));
+
+        // 新增：漂浮按钮点击事件（可根据需求自定义）
+        const floatingBtn = document.getElementById('floatingBtn');
+        floatingBtn.addEventListener('click', () => {
+            // 示例：点击后弹出提示，可替换为跳转、回到顶部等功能alert('你点击了漂浮按钮！');
+		window.location.href = 'index_05.html'
+            // 如需跳转链接，可替换为：window.location.href = '目标链接地址';
+        });
+    </script>
+</body>
+</html>

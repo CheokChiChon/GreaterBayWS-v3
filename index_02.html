@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粤港澳大湾区 - 九市风采</title>
+    <link rel="stylesheet" href="style_23.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <h1 class="logo">粤港澳大湾区 <span>九市巡礼</span></h1><p>   </p>
+            <nav class="nav">
+                <a href="index.html">湾区总览</a>
+                <a href="index_02.html">香港</a>
+                <a href="index_03.html">澳门</a>
+                <a href="index_04.html#1">广州</a>
+                <a href="index_04.html#2">深圳</a>
+                <a href="index_04.html#3">珠海</a>
+                <a href="index_04.html#4">佛山</a>
+                <a href="index_04.html#5">惠州</a>
+                <a href="index_04.html#6">东莞</a>
+                <a href="index_04.html#7">中山</a>
+                <a href="index_04.html#8">江门</a>
+                <a href="index_04.html#9">肇庆</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 页面横幅 -->
+    <section class="banner">
+        <div class="banner-text">
+            <h2>香港 · 东方之珠 融通世界</h2>
+
+        </div>
+    </section>
+<p><img height=10 width=1></p>
+    <!-- 城市卡片容器 -->
+    <main class="city-container">
+
+     <!-- 第二版：香港特别行政区 -->
+    <section id="section1" class="section section1">
+        <div class="container">
+            <div class="city-detail">
+                <div class="detail-img">
+<table><tr><td>
+                    <img src="hk_logo.jpg" width="95%" alt="香港维多利亚港">
+                
+</td></div><td width=30></td>
+<td width=600>                <div class="detail-text">
+                    <div class="feature-list">                    <p>香港是全球高度繁荣的自由港和国际大都市，与纽约、伦敦并称为“纽伦港”，是全球重要的金融中心、贸易中心和航运中心，拥有健全的法律体系、自由的营商环境。</p >
+                    <p>在大湾区发展中，香港发挥国际金融枢纽作用，推动跨境金融合作，助力大湾区企业走向国际市场，同时为内地与世界的互联互通搭建桥梁。</p >
+                        <span><i class="fa-solid fa-money-bill-wave"></i> 国 际 金 融 中 心 </span>
+                        <span><i class="fa-solid fa-ship"></i> 国 际 航 运 中 心 </span>
+                        <span><i class="fa-solid fa-handshake"></i> 全 球 贸 易 枢 纽 </span>
+        </div> 
+       </div>
+</td></tr></table>        </div>
+
+
+
+    </main>
+<p><img height=10 width=1></p>
+
+    <!--------------------------------------------------------------------------------------------- 页脚 --------->
+    <footer class="footer">
+        <p>© 2026 粤港澳大湾区九市介绍 | 6E17 | 图文仅供参考</p>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script>
+        // 回到顶部功能（保留原有逻辑，无错误）
+        const backTopBtn = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            backTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        backTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 导航栏平滑滚动：修正逻辑，区分外部链接和锚点链接
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                // 仅对锚点链接（以#开头）执行平滑滚动，外部链接保留默认跳转
+                if (href.startsWith('#')) {
+                    e.preventDefault(); // 仅阻止锚点链接的默认行为
+                    const target = document.querySelector(href);
+                    // 增加异常处理：锚点不存在时不报错
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                // 外部链接（如index.html）不阻止默认行为，正常跳转
+            });
+        });
+    </script>
+</body>
+</html>

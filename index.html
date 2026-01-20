@@ -33,6 +33,51 @@
             transform: scale(1.15);
             transition: transform 0.2s ease;
         }
+
+		/* 彈窗模式 */
+		.popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999; /* 确保弹窗层级最高 */
+        }
+
+        .popup-content {
+            background-color: white;
+            width: 550px;
+            max-width: 90%;
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .popup-close:hover {
+            color: #ff0000;
+        }
+
+        .popup-countdown {
+            margin-top: 20px;
+            color: #888;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -129,7 +174,15 @@
     </footer>
 
     <button class="back-to-top" id="backTop"><i class="fa-solid fa-arrow-up"></i></button>
-
+	<!-- ========== 新增：弹窗HTML结构 ========== -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <span class="popup-close" id="popupClose">&times;</span>
+            <font color=#000000 size=5>歡迎訪問<u>粤港澳大灣區</u>介绍頁面</font>
+            <p>這是由 <u><font color=red>澳門創西中學</font> / <font color=red>6E班 </font>/ <font color=red>學號17 </font>/ <font color=red>Donal Cheok</font></u> 建成的網站</p>
+            <div class="popup-countdown" id="popupCountdown">本頁将在 <strong>20</strong>  秒後自動關閉, 或按 X 關閉</div>
+        </div>
+    </div>
     <script>
         // 回到顶部功能
         const backTopBtn = document.getElementById('backTop');
@@ -176,6 +229,37 @@
 		window.location.href = 'index_05.html'
             // 如需跳转链接，可替换为：window.location.href = '目标链接地址';
         });
+
+		// ========== 新增：弹窗功能逻辑 ==========
+        // 获取弹窗相关元素
+        const popupOverlay = document.getElementById('popupOverlay');
+        const popupClose = document.getElementById('popupClose');
+        const popupCountdown = document.getElementById('popupCountdown');
+        
+        // 倒计时秒数
+        let countdownSeconds = 20;
+        
+        // 关闭弹窗函数
+        function closePopup() {
+            popupOverlay.style.display = 'none';
+            // 清除倒计时定时器
+            clearInterval(countdownTimer);
+        }
+        
+        // 点击关闭按钮关闭弹窗
+        popupClose.addEventListener('click', closePopup);
+        
+        // 倒计时定时器
+        const countdownTimer = setInterval(() => {
+            countdownSeconds--;
+            // 更新倒计时显示
+            popupCountdown.innerHTML = `本頁将在 <strong>${countdownSeconds}</strong> 秒後自動關閉, 或按 X 關閉`;
+            
+            // 当倒计时为0时关闭弹窗
+            if (countdownSeconds <= 0) {
+                closePopup();
+            }
+        }, 1000);
     </script>
 </body>
 </html>
